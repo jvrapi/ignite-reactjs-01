@@ -5,7 +5,25 @@ import { Sidebar } from './components/Sidebar'
 import styles from './App.module.css'
 import './global.css'
 
-const posts = [
+interface Author {
+  name: string
+  role: string
+  avatarUrl: string
+}
+
+interface Content {
+  type: 'paragraph' | 'link',
+  content: string
+}
+
+interface Post {
+  id: number
+  author: Author
+  publishedAt: Date
+  content: Content[]
+}
+
+const posts: Post[] = [
   {
     id: 1,
     author: {
@@ -36,7 +54,7 @@ const posts = [
   },
 ]
 
-function App() {
+export function App() {
 
   return (
     <div>
@@ -62,5 +80,4 @@ function App() {
   )
 }
 
-export default App
 
